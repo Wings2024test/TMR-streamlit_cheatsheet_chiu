@@ -49,15 +49,15 @@ if menu == "Home":
         st.subheader('終端機Streamlit指令')
         # Display Code
         mycode = """
-                # Command line
-                $ streamlit --help
-                $ streamlit --version
-                $ streamlit hello
-                $ streamlit config show
-                $ streamlit cache clear
-                $ streamlit docs
-                $ streamlit run your_script.py
-            """
+# Command line
+$ streamlit --help
+$ streamlit --version
+$ streamlit hello
+$ streamlit config show
+$ streamlit cache clear
+$ streamlit docs
+$ streamlit run your_script.py
+    """
         st.code(mycode, language = 'terminal')
     
     with col3:

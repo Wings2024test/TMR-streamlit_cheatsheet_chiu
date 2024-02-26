@@ -63,38 +63,45 @@ $ streamlit run your_script.py
     with col3:
         st.subheader('Streamlit的動態視覺圖')
         mycode = """
-                # 載入核心套件Streamlit
-                import streamlit as st 
-                # 載入探索式分析(EDA)相關套件 
-                import pandas as pd 
-                import numpy as np 
-                # 載入資料視覺化相關套件 
-                import plotly.express as px 
-                
-                def main():
-                    st.title("Streamlit的動態視覺圖")
-                    st.subheader("用Streamlit 呈現 Plotly")
-                    df = pd.read_csv("data/sales_data_sample.csv")
-                    df = df.iloc[0:10, ::]
-                    
-                    
-                    st.dataframe(df)
-                    
-                    # 圓餅圖 Pie Chart
-                    fig = px.pie(df,values='單價',names='系列',
-                                 title='Pie Chart of Series')
-                    st.plotly_chart(fig)
-                
-                    st.title('系列單價圓餅圖')
-                    st.plotly_chart(fig)
-                
-                    # 長條圖 Bar Chart
-                    st.title('系列單價長條圖')
-                    fig2 = px.bar(df,x='系列',y='單價')
-                    st.plotly_chart(fig2)
-                    
-                if __name__ == '__main__':
-                    main()
+# 載入核心套件Streamlit
+import streamlit as st 
+
+# 載入探索式分析(EDA)相關套件 
+import pandas as pd 
+import numpy as np 
+
+# 載入資料視覺化相關套件 
+import plotly.express as px 
+
+
+def main():
+    st.title("Streamlit的動態視覺圖")
+    st.subheader("用Streamlit 呈現 Plotly")
+    
+    df = pd.read_csv("data/sales_data_sample.csv")
+    df = df.iloc[0:10, ::]
+    
+    
+    st.dataframe(df)
+    
+    # 圓餅圖 Pie Chart
+    fig = px.pie(df, values='單價',names='系列',
+                 title='Pie Chart of Series')
+    st.plotly_chart(fig)
+
+    st.title('系列單價圓餅圖')
+    st.plotly_chart(fig)
+
+    # 長條圖 Bar Chart
+    st.title('系列單價長條圖')
+    fig2 = px.bar(df,x='系列',y='單價')
+    st.plotly_chart(fig2)
+    
+
+if __name__ == '__main__':
+    main()
+
+
                         """
         st.code(mycode, language = 'python')
         
